@@ -10,9 +10,23 @@ To write a C Program to find area of rectangle using pointer.
 5.	Stop the program.
 
 ## PROGRAM
-
+```
+#include<stdio.h>
+int main(){
+    float l,b,area;
+    float *p1,*p2;
+    scanf("%f",&l);
+    p1=&l;
+    scanf("%f",&b);
+    p2=&b;
+    area=(*p1)*(*p2);
+    printf("Area of rectangle = %f sq. units",area);
+    return 0;
+}
+```
 ## OUTPUT
-		       	
+<img width="1087" height="277" alt="Screenshot 2025-10-24 083824" src="https://github.com/user-attachments/assets/46a74953-b5fa-48e5-a2f7-72394f68d77b" />
+
 
 
 ## RESULT
@@ -23,7 +37,8 @@ Thus the program to find area of rectangle using pointer has been executed succe
 
 # EX-27-DYNAMIC-MEMORY-ALLOCATION
 ## AIM
-To write a C Program to print 'WELCOME' using malloc() and free().
+Write a C program to Print 'Hello' using malloc() and free() .
+
 
 ## ALGORITHM
 1.	Start the program.
@@ -34,13 +49,32 @@ To write a C Program to print 'WELCOME' using malloc() and free().
 6.	Stop the program.
 
 ## PROGRAM
+```
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main(){
+    char *str;
+    str=(char*)malloc(sizeof(char) * (strlen("Hello")+1));
+    if(str==NULL){
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+    strcpy(str,"Hello");
+    printf("%s\n",str);
+    free(str);
+    str=NULL;
+    return 0;
+}
+```
 
 ## OUTPUT
 
+<img width="435" height="276" alt="Screenshot 2025-10-24 084043" src="https://github.com/user-attachments/assets/53ace084-17c2-46aa-9781-99300bd3e11a" />
 
 
 ## RESULT
-Thus the program to print 'WELCOME' using malloc() and free() has been executed successfully
+Thus the program to print 'Hello' using malloc() and free() has been executed successfully
  
 .
 
@@ -50,7 +84,8 @@ Thus the program to print 'WELCOME' using malloc() and free() has been executed 
 
 ## AIM
 
-To write a C Program to store the student information and display it using structure.
+Create a C Program to store the student information and display it using structure.
+
 
 ## ALGORITHM
 
@@ -60,9 +95,31 @@ To write a C Program to store the student information and display it using struc
 4.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+struct Student {
+    char name[50];
+    int roll;
+    float marks;
+};
 
+int main() {
+    struct Student s1;
+    scanf("%s", s1.name);
+    scanf("%d", &s1.roll);
+    scanf("%f", &s1.marks);
+    printf("Displaying Information:\n");
+    printf("Name: %s\n", s1.name);
+    printf("Roll number: %d\n", s1.roll);
+    printf("Marks: %.1f\n", s1.marks);
+
+    return 0;
+}
+
+```
 
 ## OUTPUT
+<img width="740" height="338" alt="Screenshot 2025-10-24 084208" src="https://github.com/user-attachments/assets/c40fbaec-dca8-414f-bac6-9e2a87aaec8f" />
 
 
 ## RESULT
@@ -76,7 +133,8 @@ Thus the program to store the student information and display it using structure
 
 ## AIM
 
-To write a C Program to read and store the data of 3 employees and calculate their Gross Salary using the concept of structure.
+C program to store and display the name, id, age and salary of an employee using structure(using array of structure)
+
 
 ## ALGORITHM
 
@@ -87,11 +145,35 @@ To write a C Program to read and store the data of 3 employees and calculate the
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+struct Employee {
+    int id;
+    char name[50];
+    int age;
+    float salary;
+};
 
+int main() {
+    struct Employee emp[100];
+    int n, i;
+    scanf("%d", &n);
+    for (i = 0; i < n; i++) {
+        scanf("%d %s %d %f", &emp[i].id, emp[i].name, &emp[i].age, &emp[i].salary);
+    }
+    printf("Employee Details\n");
+    for (i = 0; i < n; i++) {
+        printf("%d  %s  %d  %.0f\n", emp[i].id, emp[i].name, emp[i].age, emp[i].salary);
+    }
+
+    return 0;
+}
+```
 
  ## OUTPUT
 
- 
+ <img width="806" height="408" alt="Screenshot 2025-10-24 084259" src="https://github.com/user-attachments/assets/b1f097ee-144d-4791-b3a7-b85dd21bbc3b" />
+
 
 ## RESULT
 
